@@ -11,6 +11,7 @@ The concepts I will be covering in it will be
 1. RESTfull api using node js express.
 2. Use of vanilla java script.
 3. ES6 (promise,async)
+4. Java script multi- threaded Event loop
 
 ```html
 <h1>%name%</h1>
