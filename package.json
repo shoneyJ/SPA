@@ -1,0 +1,38 @@
+{
+  "name": "hms_ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:api": "nodemon api.js",
+    "start:app": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently npm:start:*"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "bootstrap": "^5.1.3",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jquery": "^3.6.0",
+    "jquey": "0.0.1-security",
+    "module": "^1.2.5",
+    "mysql": "^2.18.1",
+    "mysqljs": "0.0.2-security",
+    "nodemon": "^2.0.15",
+    "save": "^2.4.0"
+  },
+  "nodemonConfig": {
+    "restartable": "rs",
+    "delay": 2500,
+    "env": {
+      "PORT": 4000
+    }
+  },
+  "devDependencies": {
+    "concurrently": "^6.4.0",
+    "eslint": "^8.3.0"
+  }
+}
