@@ -14,8 +14,23 @@ export default class RoomService extends CommonServices {
     return this.postCallAjax(url, data);
   }
 
-  //   getHtml() {
-  //     var file = "./views/settings.html";
-  //     return this.readHtml(file);
-  //   }
+  addSpecialLocation(data) {
+    var url = "http://localhost:3200/api/speciallocation";
+    return this.postCallAjax(url, data);
+  }
+
+  addSpecialDate(data) {
+    var url = "http://localhost:3200/api/specialdate";
+    return this.postCallAjax(url, data);
+  }
+
+
+  addRoom(data) {
+    var url = "http://localhost:3200/api/room";
+    return this.postCallAjax(url, data);
+  }
+  getRooms() {
+    var url = "http://localhost:3200/api/room";
+    return this.getCallAjax(url);
+  }
 }

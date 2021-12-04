@@ -1,7 +1,7 @@
 <h1>%name%</h1>
 
 <div class="row">
-  <div class="col-sm-12" id="moduleroomtype">
+  <div class="col-sm-6">
     <form>
       <div class="form-group row">
         <label for="inputBasePrice" class="col-sm-2 col-form-label"
@@ -40,5 +40,199 @@
     </form>
   </div>
 
-  <div class="col-sm-12"></div>
+  <div class="col-sm-6">
+    <table id="tblRoomType">
+      <thead>
+          <tr>
+              <th>Base Price</th>
+              <th>Type</th>              
+          </tr>
+      </thead>
+  </table>
+    
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-sm-6" >
+    <form>
+      <div class="form-group row">
+        <label for="inputHikePercent" class="col-sm-2 col-form-label"
+          >Hike Percent</label
+        >
+        <div class="col-sm-10">
+          <input
+            type="number"
+            class="form-control"
+            id="hikePercent"
+            placeholder="Hike"
+          />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputSpecialLocation" class="col-sm-2 col-form-label"
+          >Name</label
+        >
+        <div class="col-sm-10">
+          <input
+            type="text"
+            class="form-control"
+            id="inputSpecialLocation"
+            placeholder="Location Name"
+          />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-10">
+          <button type="button" id="btnAddSpecialLocation" class="btn btn-primary">
+            Add
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="col-sm-6">
+    <table id="tblSpecialLocation">
+      <thead>
+          <tr>
+              <th>Hike Percentage</th>
+              <th>Location Name</th>              
+          </tr>
+      </thead>
+  </table>
+    
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-sm-6" >
+    <form>
+      <div class="form-group row">
+        <label for="inputDate" class="col-sm-2 col-form-label"
+          >Date</label
+        >
+        <div class="col-sm-10">
+          <input
+            type="date"
+            class="form-control"
+            id="inputDate"
+            placeholder="Date"
+          />
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="txtspecialDateHikePercent" class="col-sm-2 col-form-label"
+          >Hike</label
+        >
+        <div class="col-sm-10">
+          <input
+            type="text"
+            class="form-control"
+            id="txtspecialDateHikePercent"
+            placeholder="Hike"
+          />
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-10">
+          <button type="button" id="btnAddSpecialDate" class="btn btn-primary">
+            Add
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="col-sm-6">
+    <table id="tblSpecialDate">
+      <thead>
+          <tr>
+              <th>Date</th>             
+              <th>Hike Percentage</th>
+              
+          </tr>
+      </thead>
+  </table>
+    
+  </div>
+</div>
+
+
+
+
+<div class="row">
+  <div class="col-sm-6">
+  <div class="card">
+    <div class="card-header">
+      Room
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Manage room</h5>
+      <form>
+        <div class="form-group row">
+      
+            <label for="roomFloor" class="col-sm-2 col-form-label"
+            >floor no</label
+          >
+          <div class="col-sm-10">
+            <input
+              type="int"
+              class="form-control"
+              id="roomFloor"
+              placeholder="floor no"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="ddlRoomtype" class="col-sm-2 col-form-label"
+            >Room Type</label
+          >
+          <div class="col-sm-10">
+            <select id=ddlRoomtype class="custom-select form-control">
+              
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="ddlSpecialLocation" class="col-sm-2 col-form-label"
+            >Special Location</label
+          >
+          <div class="col-sm-10">
+            <select id=ddlSpecialLocation class="custom-select form-control">
+             
+            </select>
+          </div>
+        </div>
+  
+        <div class="form-group row">
+          <div class="col-sm-10">
+            <button type="button" id="btnAddRoom" class="btn btn-primary">
+              Add
+            </button>
+          </div>
+        </div>
+      </form>
+      
+    </div>
+  </div>
+  </div>
+  <div class="col-sm-6">
+    <table id="tblRoom">
+      <thead>
+          <tr>
+              <th>Id</th> 
+              <th>Floor number</th>             
+              <th>Room Type</th>
+              <th>Special location</th>
+          </tr>
+      </thead>
+  </table>
+    
+  </div>
 </div>

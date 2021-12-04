@@ -1,35 +1,32 @@
-
-const express= require('express');
-const cors = require('cors');
-const mysql = require('mysql');
-const { application, json } = require('express');
+const express = require("express");
+const cors = require("cors");
+const mysql = require("mysql");
+const { application, json } = require("express");
 
 const api = express();
-const PORT= 3200;
+const PORT = 3200;
 
 api.use(cors());
 api.use(express.json());
-api.use(express.urlencoded({extends:true})); //Parse URL-encoded bodies
+api.use(express.urlencoded({ extends: true })); //Parse URL-encoded bodies
 
-var con = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "password",
-    database:'hms'
-  });
-  con.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected!");
-  });
-  
-  const hotelRouter= require('./apiroutes/hotelRouter')(con);
+const config = require("../nodejsapp/config/config.js");
 
-api.use('/api',hotelRouter);
+var con = mysql.createConnection(config.databaseOptions);
+con.connect(function (err) {
+  if (err) throw err;
+  console.log("Connected!");
+});
 
-  
+const hotelRouter = require("./apiroutes/hotelRouter")(con);
+//api.use("/api", hotelRouter);
 
-  
-api.listen(PORT,()=>{
+const bookingRouter = require("./apiroutes/bookingRouter")(con);
+const customerRouter = require("./apiroutes/customerRouter")(con);
 
-    console.log('Listeing on port', PORT);
-})
+api.use("/api", [hotelRouter,bookingRouter,customerRouter]);
+
+
+api.listen(PORT, () => {
+  console.log("Listeing on port", PORT);
+});
