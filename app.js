@@ -16,7 +16,9 @@ var con = mysql.createConnection({
 });
 
 /* Ensure any requests prefixed with /static will serve our "frontend/static" directory */
-
+app.get('', (req, res) => {
+  res.sendFile(path.resolve(__dirname, "public", "index.html"));
+});
 app.use(
   "/css",
   express.static(path.join(__dirname, "/node_modules/bootstrap/dist/css"))

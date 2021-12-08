@@ -1,8 +1,3 @@
-CREATE TABLE `hotel` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `name` varchar(100)  NOT NULL,
-  PRIMARY KEY (`id`)
-);
 
 CREATE TABLE `special_location` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -66,17 +61,7 @@ CREATE TABLE `room` (
   CONSTRAINT `fk_special_location` FOREIGN KEY (`special_location_id`) REFERENCES `special_location` (`id`)
 ) 
 
-CREATE TABLE `availed_service` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `completion_status` bit(1) NOT NULL,
-  `customer_id` int NOT NULL,
-  `room_id` int NOT NULL,
-  `service_type_id` int NOT NULL,
-  PRIMARY KEY (`id`),
-  CONSTRAINT `fk_room` FOREIGN KEY (`room_id`) REFERENCES `room` (`id`),
-  CONSTRAINT `fk_servicetype` FOREIGN KEY (`service_type_id`) REFERENCES `service_type` (`id`),
-  CONSTRAINT `fk_customer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`)
-) 
+
 
 CREATE TABLE `billing` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -113,20 +98,6 @@ CREATE TABLE `customer_rooms` (
 
 
 
-CREATE TABLE `parking` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `parking_slot_availability` bit(1) NOT NULL,
-  `parking_slot_number` int NOT NULL,
-  `time_of_departure` date DEFAULT NULL,
-  `time_of_parking` date DEFAULT NULL,
-  `vehicle_platenumber` varchar(10)   DEFAULT NULL,
-  `customer_id` int NOT NULL,
-  `staff_id` int DEFAULT NULL,
-  PRIMARY KEY (`id`),
- 
-  CONSTRAINT `fk_parkingcustomer` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`id`),
-  CONSTRAINT `fk_parkingstaff` FOREIGN KEY (`staff_id`) REFERENCES `staff` (`id`)
-) 
 
 
 CREATE TABLE `title` (
@@ -195,6 +166,16 @@ CREATE TABLE `booking_room` (
   CONSTRAINT `fk_booking_room_room` FOREIGN KEY (`room_id`) REFERENCES `room` (`id`)
 );
 
+CREATE TABLE `booking_service` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `booking_id` int NOT NULL,
+  `service_id` int not null,
+ 
+  PRIMARY KEY (`id`),
+ 
+  CONSTRAINT `fk_booking_service_type_booking` FOREIGN KEY (`booking_id`) REFERENCES `booking` (`id`),
+  CONSTRAINT `fk_booking_room_service_type` FOREIGN KEY (`service_id`) REFERENCES `service_type` (`id`)
+);
 ALTER TABLE booking
 ADD COLUMN booking_date datetime AFTER id;
 
@@ -221,7 +202,47 @@ INSERT INTO  `title`
 VALUES
 ('Mrs');
 
+ALTER TABLE `hmsneu`.`service_type` 
+ADD COLUMN `price` INT NOT NULL AFTER `service_type`;
 
+
+ALTER TABLE `hmsneu`.`billing` 
+DROP FOREIGN KEY `fk_booking_billing`;
+ALTER TABLE `hmsneu`.`billing` 
+ADD COLUMN `booking_id`  INT NOT NULL ,
+Add COLUMN `state` VARCHAR(10) NOT NULL DEFAULT 'Not Paid' ;
+
+ALTER TABLE `billing` ADD CONSTRAINT `fk_booking_billing` FOREIGN KEY (`booking_id`) REFERENCES `booking` (`id`);
+
+
+
+CREATE TABLE `hotel` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100)   NOT NULL,
+  PRIMARY KEY (`id`)
+)  ;
+
+
+INSERT INTO  `hotel`
+( 
+`name`)
+VALUES
+( 'Marriott Heidelberg');
+
+
+
+ALTER TABLE `staff` 
+ADD COLUMN `password`  VARCHAR(10) NULL ,
+Add COLUMN `username` VARCHAR(10)  NULL,
+ADD COLUMN `hotel_id`  INT NOT NULL DEFAULT 1;
+ 
+ 
+ ALTER TABLE `staff` ADD CONSTRAINT `fk_staff_hotel` FOREIGN KEY (`hotel_id`) REFERENCES `hotel` (`id`);
+ 
+ 
+ALTER TABLE `booking` 
+ADD COLUMN `no_of_people`  int NULL;
+ 
 
 
 

@@ -79,9 +79,11 @@ function bookingRouter(con){
     .post((req, res) => {
       const reqBody = req.body;
       var sqlCall = con.query(
-        "call AddCustomerAddBooking(?,?, ?,?, ?,?, ?,?, ?,?)",
+        "call AddCustomerAddBooking(?,?, ?,?, ?,?, ?,?, ?,?,?,?,?)",
         [reqBody.customer_id,reqBody.title_id, reqBody.first_name,reqBody.last_name,
-          reqBody.emailid,reqBody.information,reqBody.dateofbirth,reqBody.check_in_date,reqBody.check_out_date,reqBody.room_list],
+          reqBody.emailid,reqBody.information,reqBody.dateofbirth,reqBody.check_in_date,reqBody.check_out_date,reqBody.room_list,reqBody.service_list,
+          reqBody.staff_id,
+          reqBody.no_of_people],
         function (err, result) {
           if (err) throw err;
         }

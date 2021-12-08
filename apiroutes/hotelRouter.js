@@ -38,6 +38,34 @@ function routes(con) {
       res.json(req.body);
     });
 
+    hotelRouter
+    .route("/service")
+    .get((req, res) => {
+      let sql = `CALL GetServiceTypes();`;
+      con.query(sql, true, (error, results, fields) => {
+        if (error) {
+          return console.error(error.message);
+        }        
+        var values=results[0];
+        
+        values=JSON.stringify({data:values});      
+        res.send(values);
+        //res.json(results[0]);
+      });
+    })
+    .post((req, res) => {
+      const ServiceType = req.body;
+      var sqlCall = con.query(
+        "call InsertServiceTypes(?, ?)",
+        [ServiceType.ServiceType, ServiceType.baseSPrice],
+        function (err, result) {
+          if (err) throw err;
+        }
+      );
+      console.log('INsterted service')
+      res.json(req.body);
+    });
+
 
     hotelRouter
     .route("/speciallocation")

@@ -25,6 +25,15 @@ export default class RoomService extends CommonServices {
   }
 
 
+  addService(data) {
+    var url = "http://localhost:3200/api/service";
+    return this.postCallAjax(url, data);
+  }
+  getService() {
+    var url = "http://localhost:3200/api/service";
+    return this.getCallAjax(url);
+  }
+
   addRoom(data) {
     var url = "http://localhost:3200/api/room";
     return this.postCallAjax(url, data);

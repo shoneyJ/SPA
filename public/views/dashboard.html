@@ -1,71 +1,225 @@
-<section>
-    <h1>Dashboard</h1>
-    <div class="card">
-        <div class="card-header">
-            Booking
+<!-- <section>
+    <h1>Dashboard</h1> -->
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button"
+            role="tab" aria-controls="home" aria-selected="true">Booking</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
+            role="tab" aria-controls="profile" aria-selected="false">Customer Profile</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="billing-tab" data-bs-toggle="tab" data-bs-target="#billing" type="button"
+            role="tab" aria-controls="billing" aria-selected="false">Billing</button>
+    </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+        <div class="card">
+
+            <div class="card-body">
+                <div class="container">
+                    <form>
+                        <div class="text-center padding">
+                            <h2> Make a booking</h2>
+                        </div>
+                        <div class="form-group row  ">
+
+                            <div class="form-row col-md-6 ">
+                                <div class="form-group col-md-6">
+                                    <label for="existingcustomer" class="form-label col-lg-12">Customer</label>
+                                    <select class="custom-select form-control col-lg-12" id="existingcustomer"
+                                        placeholder="First Name">
+                                        <option value="0">Add New Customer</option>>
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="title" class="form-label col-lg-4">Title</label>
+                                    <select class="form-control custom-select col-lg-4" id="title"
+                                        placeholder="Title"></select>
+                                    <label for="firstName" class="form-label col-lg-8">First Name</label>
+                                    <input type="text" class="form-control col-lg-8" id="firstName"
+                                        placeholder="First Name" autocomplete>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="lastName" class="form-label col-lg-12">Last Name</label>
+                                    <input type="text" class="form-control col-lg-12" id="lastName"
+                                        placeholder="Last Name">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="email" class="form-label col-lg-12">Email Id</label>
+                                    <input type="text" class="form-control col-lg-12" id="email" placeholder="mail">
+                                </div>
+                            </div>
+                            <div class="form-row col-md-6 ">
+                                <div class="form-group col-md-6">
+                                    <label for="checkindate" class="form-label col-lg-12">Check in</label>
+                                    <input type="date" class="form-control col-lg-12" id="checkindate"
+                                        placeholder="Check In" autocomplete>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="checkoutdate" class="form-label col-lg-12">Check out</label>
+                                    <input type="date" class="form-control col-lg-12" id="checkoutdate"
+                                        placeholder="Check Out">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="noofpeople" class="form-label col-lg-12">No of People</label>
+                                    <input type="number" class="form-control col-lg-12" id="noofpeople"
+                                        placeholder="noofpeople">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="room" class="form-label col-lg-12">Room</label>
+                                    <select multiple="multiple" class="custom-select form-control col-lg-12" id="room"
+                                        placeholder="room">
+
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="service" class="form-label col-lg-12">Service</label>
+                                    <select multiple="multiple" class="custom-select form-control col-lg-12"
+                                        id="service" placeholder="service">
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-lg-12">
+                                <label for="information">Information:</label>
+                                <textarea class="form-control col-lg-12" rows="5" id="information"></textarea>
+                            </div>
+
+                            <div class="form-group col-lg-4">
+                                <button type="button" id="btnbook" class=" btn btn-primary padding-top">Submit</button>
+                                <button type="button" class=" btn btn-danger padding-top">cancel</button>
+                            </div>
+
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
         </div>
-        <div class="card-body">
-            <div class="container">
-                <form>
-                    <div class="text-center padding">
-                        <h2> Make a booking</h2>
-                    </div>
-                    <div class="form-group row  ">
 
-                        <div class="form-row col-md-6 ">
-                            <div class="form-group col-md-6">
-                                <label for="existingcustomer" class="form-label col-lg-12">Customer</label>
-                                <select class="custom-select form-control col-lg-12" id="existingcustomer"
-                                    placeholder="First Name">
-                                    <option value="0">Add New Customer</option>>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="title" class="form-label col-lg-4">Title</label>
-                                <select class="form-control custom-select col-lg-4" id="title"
-                                    placeholder="Title"></select>
-                                <label for="firstName" class="form-label col-lg-8">First Name</label>
-                                <input type="text" class="form-control col-lg-8" id="firstName" placeholder="First Name"
-                                    autocomplete>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="lastName" class="form-label col-lg-12">Last Name</label>
-                                <input type="text" class="form-control col-lg-12" id="lastName" placeholder="Last Name">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="email" class="form-label col-lg-12">Email Id</label>
-                                <input type="text" class="form-control col-lg-12" id="email" placeholder="mail">
-                            </div>
+
+
+    </div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+
+        <div class="card">
+
+            <div class="card-body">
+                <div class="container">
+                    <form>
+                        <div class="text-center padding">
+                            <h2> Manage customer</h2>
                         </div>
-                        <div class="form-row col-md-6 ">
-                            <div class="form-group col-md-6">
-                                <label for="checkindate" class="form-label col-lg-12">Check in</label>
-                                <input type="date" class="form-control col-lg-12" id="checkindate"
-                                    placeholder="Check In" autocomplete>
+                        <div class="form-group row  ">
+
+                            <div class="form-row col-md-12 ">
+
+                                <div class="form-group col-md-6">
+                                    <label for="profile-firstName" class="form-label col-lg-8">First Name</label>
+                                    <input type="text" class="form-control col-lg-8" id="profile-firstName"
+                                        placeholder="First Name" autocomplete>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="profile-lastName" class="form-label col-lg-12">Last Name</label>
+                                    <input type="text" class="form-control col-lg-12" id="profile-lastName"
+                                        placeholder="Last Name">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="profile-email" class="form-label col-lg-12">Email Id</label>
+                                    <input type="text" class="form-control col-lg-12" id="profile-email"
+                                        placeholder="mail">
+                                </div>
                             </div>
-                            <div class="form-group col-md-6">
-                                <label for="checkoutdate" class="form-label col-lg-12">Check out</label>
-                                <input type="date" class="form-control col-lg-12" id="checkoutdate"
-                                    placeholder="Check Out">
+                            <div class="form-group col-lg-4">
+                                <button type="button" id="btncustomer"
+                                    class=" btn btn-primary padding-top">Update</button>
+                                <button type="button" class=" btn btn-danger padding-top">cancel</button>
                             </div>
-                            <div class="form-group col-md-6">
-                                <label for="room" class="form-label col-lg-12">Room</label>
-                                <select multiple="multiple" class="custom-select form-control col-lg-12" id="room"
-                                    placeholder="room">
 
-                                </select>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <table id="tblCustomer">
+
+            </table>
+        </div>
+
+
+
+    </div>
+    <div class="tab-pane fade" id="billing" role="tabpanel" aria-labelledby="billing-tab">
+        <div class="card">
+
+            <div class="card-body">
+                <div class="container">
+                    <form>
+                        <div class="text-center padding">
+                            <h2> Manage Bills</h2>
+                        </div>
+                        <div class="form-group row  ">
+
+                            <div class="form-row col-md-12 ">
+
+                                <div class="form-group col-md-6">
+                                    <label for="billing-existingcustomer" class="form-label col-lg-12">Customer</label>
+                                    <select class="custom-select form-control col-lg-12" id="billing-existingcustomer">
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label id="billing-lastName" class="form-label col-lg-12"> </label>
+
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label id="billing-amount" class="form-label col-lg-12"> </label>
+
+                                </div>
+
+                                <div class="form-group col-md-6">
+                                    <label id="billing-status" class="form-label col-lg-12"> </label>
+
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="select-billing-status" class="form-label col-lg-12">Status</label>
+                                    <select class="custom-select form-control col-lg-12" id="select-billing-status">
+                                        <option value="Not Paid">Not Paid</option>
+                                        <option value="In Progress">In Progress</option>
+                                        <option value="Paid">Paid</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
+                            <div class="form-group col-lg-4">
+                                <button type="button" id="btnbilling" class=" btn btn-primary padding-top">Update
+                                    bill</button>
+                                <button type="button" class=" btn btn-danger padding-top">cancel</button>
+                            </div>
 
-                        <div class="form-group col-lg-12">
-                            <label for="information">Information:</label>
-                            <textarea class="form-control col-lg-12" rows="5" id="information"></textarea>
                         </div>
+                    </form>
 
-                        <div class="form-group col-lg-4">
-                            <button type="button" id="btnbook" class=" btn btn-primary padding-top">Submit</button>
-                            <button type="button" class=" btn btn-danger padding-top">cancel</button>
-                        </div>
+                </div>
+            </div>
 
-                    </div>
-</section>
+        </div>
+        <div class="row">
+            <table id="tblBilling">
+
+            </table>
+        </div>
+
+
+    </div>
+</div>
+
+<!-- </section> -->

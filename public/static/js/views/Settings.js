@@ -92,6 +92,19 @@ export default class Settings extends AbstractView {
 });
 
 
+$('#tblServiceType').DataTable({
+  "serverSide": true,
+  "ajax": "http://localhost:3200/api/service",      
+  columns: [
+    { title: "Service Type",
+    "data": "service_type" ,
+   },
+    { title: "BasePrice", 
+    "data": "price"  },
+  ]
+});
+
+
 $('#tblRoom').DataTable({
   "serverSide": true,
   "ajax": "http://localhost:3200/api/room",      
@@ -122,6 +135,8 @@ $('#tblRoom').DataTable({
     const btnAddSpecialLocation = document.getElementById("btnAddSpecialLocation");
     const hikePercent = document.getElementById("hikePercent");
     const specialLocation = document.getElementById("inputSpecialLocation");
+    const baseSPrice =  document.getElementById("baseSPrice");
+    const ServiceType =  document.getElementById("ServiceType");
 
     btnAddRoomType.addEventListener("click", (event) => {
       this.roomService.addRoomType({
@@ -150,6 +165,13 @@ $('#tblRoom').DataTable({
         floor_number:  document.getElementById("roomFloor").value,
         room_type_id: document.getElementById("ddlRoomtype").value,
         special_location_id:document.getElementById("ddlSpecialLocation").value
+      });
+    });
+
+    document.getElementById("btnAddServiceType").addEventListener("click", (event) => {
+      this.roomService.addService({    
+        baseSPrice:  baseSPrice.value,
+        ServiceType: ServiceType.value,
       });
     });
    
