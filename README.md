@@ -4,7 +4,6 @@
 
 Using this [Referrence](https://dev.to/dcodeyt/building-a-single-page-app-without-frameworks-hl9 "Dev To") I am developing a single page application without using a view engine.
 
-Developing a Hotel management sytem application for the group project of Applied computer science, SRH Heidelberg.
 
 The concepts I will be covering in it will be
 
