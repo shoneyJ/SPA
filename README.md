@@ -1,4 +1,4 @@
-# Single Page application using vanilla javascript, node js express
+# Single Page application using vanilla JavaScript, nodejs express
 
 ---
 
